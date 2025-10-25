@@ -1,0 +1,41 @@
+.ytd-thumbnail {
+  border-radius: 10% !important;
+}
+.ytd-thumbnial:hover{
+    border: 2px solid white;
+}
+.ytp-iv-video-content{
+    border-radius: 10px; !important
+    border: 2px solid white;!important
+
+}
+.ytp-player-content .ytp-iv-player-content{
+    border-radius: 10px; !important
+    border: 2px solid white;!important
+
+
+}
+/*anoying darkmode*/
+.ytp-gradient-bottom{
+    display: none !important
+}
+.ytp-gradient-top{
+    display: none !important
+}
+/*make video fill the remaining space */
+#primary {
+    width: 100% !important;
+    flex: 1 !important;
+    max-width: none !important;
+}
+#secondary{
+    display:none !important
+}
+.ytd-masthead {
+  margin: 0 !important;
+  display: none !important;
+}
+ytd-mini-guide-renderer, 
+ytd-guide-renderer {
+  display: none !important;
+}

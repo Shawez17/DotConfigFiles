@@ -1,0 +1,12 @@
+#!/bin/bash
+# This script opens the provided URL in mpv
+
+# Check if a URL is provided
+if [ -z "$1" ]; then
+    echo "No URL provided."
+    exit 1
+fi
+
+# Open the URL in mpv
+mpv "$1"
+
