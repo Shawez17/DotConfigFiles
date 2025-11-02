@@ -1,12 +1,8 @@
-" ----------------------
 " Vim Config: Minimal Python Dev
-" ----------------------
 " Automatically load ycm_extra_conf.py without asking
 let g:ycm_confirm_extra_conf = 0
 " Enable line numbers
-set number
 set backupcopy=yes
-set relativenumber
 set ignorecase
 " Basic UI tweaks
 set showmode
@@ -14,8 +10,8 @@ set showcmd
 set wrap
 set foldmethod=syntax
 " Syntax and filetype support
-"
-"
+
+
 nnoremap <C-t> :NERDTreeToggle <CR>
 syntax on
 filetype plugin indent on
@@ -34,7 +30,6 @@ set shiftwidth=4     " width for autoindent
 set expandtab        " use spaces instead of tabs
 " Line number colors (black & white theme)
 " highlight LineNr ctermfg=Grey guifg=#444444
-highlight CursorLineNr ctermfg=White guifg=White
 " highlight CursorLine ctermbg=Black guibg=Black
 
 "override/Load for specific file
@@ -59,7 +54,7 @@ augroup latex_template
 augroup END
 augroup js_braces
   autocmd!
-  autocmd FileType javascript,css inoremap { {<CR>}<Esc>O
+  autocmd FileType javascript,css,c,php inoremap { {<CR>}<Esc>O
 augroup END
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
@@ -70,6 +65,11 @@ highlight MyAngleHighlight ctermfg=red guifg=red
 autocmd BufEnter,BufWinEnter,BufFilePost * call matchadd('MyAngleHighlight', '<div>\zs\_.\{-}\ze</div>')
 " ----------------------
 " Plugin Manager: vim-plug
+" Define cursor color (Gruvbox orange example)
+highlight Cursor guifg=NONE guibg=#FE8019
+
+" Apply cursor in all normal modes as a block
+set guicursor=n-v-c:block-Cursor
 " ----------------------
 call plug#begin('~/.vim/plugged')
 "Plug 'lervag/vimtex'
@@ -89,6 +89,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'maxmellon/vim-jsx-pretty'
 "Optional: Color scheme (white-on-black)
 Plug 'gruvbox-community/gruvbox'
+"Plug 'dracula/vim', { 'as': 'dracula' }
+
 call plug#end()
 filetype plugin indent on
 let g:indentLine_color_term = 220
@@ -99,6 +101,11 @@ let g:indentLine_color_gui = '#FFD580'  " mustard yellow
 "let g: tex_conceal='abdmg'
 " Set color scheme
 colorscheme gruvbox
+syntax enable
+
+"colorscheme dracula
+
+"set background=dark
 " ----------------------
 " Python-specific settings
 " ----------------------

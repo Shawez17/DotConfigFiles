@@ -5,15 +5,21 @@ setopt extended_glob
 setopt dot_glob
 export PATH="/Library/TeX/texbin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.14/bin:$PATH"
+#gnu arm toolchain
+
+export PATH=~/stm32/gcc-arm/gcc-arm-mac-main/bin:$PATH
 
 #path ot ohh myzsh
 export ZSH="$Home/.oh-my-zsh"
 alias fzf='fzf --preview="bat --style=numbers --color=always {}"'
+alias usb1='/dev/tty.usbserial-110'
+alias usb2='/dev/tty.usbserial-1110'
+alias st-cli='/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/Resources/bin/STM32_Programmer_CLI'
 
 # autosuggestions
 alias opne='open'
 alias oprn='open'
-
+alias py3='python3'
 
 alias get_idf='. $HOME/esp/esp-idf/export.sh'
 #plugin
@@ -35,6 +41,8 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # autoload -U tetris
 
 #SPELLING alias
+alias ytsubs='open "https://www.youtube.com/feed/subscriptions/"'
+alias ytplay='open "https://www.youtube.com/feed/playlists/"'
 alias phpstart='php -S localhost:8000'
 alias c='clear'
 alias grep='grep --color=auto'
@@ -55,7 +63,7 @@ alias lsp='ls *.png'
 alias lsm='ls *.md'
 alias latex='cd "downloads/zkN_notes/experiments/"'
 alias zshopen='sudo vi ~/.zshrc && source ~/.zshrc'
-alias mypy='source Public/myenv/bin/activate'
+alias mypy='source /Users/bears/Public/myenv/bin/activate'
 alias .='cd ..'
 alias ..='cd ../..'
 alias ...='cd ../../..'
@@ -79,3 +87,5 @@ alias anki='open -a anki'
 
 
 
+
+export STM32_PRG_PATH=/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM32CubeProgrammer.app/Contents/MacOs/bin

@@ -3,3 +3,8 @@
 .flex-container-row{
     display:none !important 
 }
+.code-block2 code-editor-container{
+
+/*doesnt remove the code bar , sad*/
+    display:none !important
+}
