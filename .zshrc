@@ -1,16 +1,21 @@
 # If you come from bash you might have to change your $PATH.
 #export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 #Zsh terminal setup
+export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.14/bin:$PATH"
+export PATH="/opt/homebrew/bin/node:$PATH"
 setopt extended_glob
 setopt dot_glob
 export PATH="/Library/TeX/texbin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.14/bin:$PATH"
 #gnu arm toolchain
 
 export PATH=~/stm32/gcc-arm/gcc-arm-mac-main/bin:$PATH
-
+#compiling shorcut, Works under directory /Users/bears/random
+alias vjs='vi jam.js'
+alias vpy='vi jam.py'
+alias runjs='node jam.js'
+alias runpy='python3 jam.py'
 #path ot ohh myzsh
-export ZSH="$Home/.oh-my-zsh"
 alias fzf='fzf --preview="bat --style=numbers --color=always {}"'
 alias usb1='/dev/tty.usbserial-110'
 alias usb2='/dev/tty.usbserial-1110'
@@ -19,9 +24,9 @@ alias st-cli='/Applications/STMicroelectronics/STM32Cube/STM32CubeProgrammer/STM
 # autosuggestions
 alias opne='open'
 alias oprn='open'
-alias py3='python3'
-
-alias get_idf='. $HOME/esp/esp-idf/export.sh'
+#compiling/interpreting
+alias p='/opt/homebrew/opt/python@3.14/bin/python3'
+alias n='/opt/homebrew/bin/node'
 #plugin
 
 
@@ -41,24 +46,18 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 # autoload -U tetris
 
 #SPELLING alias
+alias v='vi'
 alias ytsubs='open "https://www.youtube.com/feed/subscriptions/"'
 alias ytplay='open "https://www.youtube.com/feed/playlists/"'
-alias phpstart='php -S localhost:8000'
+alias phplocal='php -S localhost:8000'
 alias c='clear'
 alias grep='grep --color=auto'
 alias sleep='pmset sleepnow'
-alias sql='mysql -u shawez -p' #password: your_password_here
-alias p='open -a preview'
+alias sqlp='mysql -u shawez -p' #password: your_password_here
 alias gnu='gnuradio-companion'
 #SHORTCUT alias
-alias f='open -a Finder'
 
-alias qconfig='vi "~/.qutebrowser/config.py"'
 alias pydoc='python -m pydoc'
-alias dwn='cd "downloads/"'
-alias doc='cd "documents/"'
-alias notes='lsd "downloads/zkN_notes" && cd "downloads/zkN_notes/"'
-alias python='/usr/bin/python3'
 alias lsp='ls *.png'
 alias lsm='ls *.md'
 alias latex='cd "downloads/zkN_notes/experiments/"'
@@ -84,7 +83,11 @@ alias safari='open -a safari'
 alias anki='open -a anki'
 
 #git commands
-
+#completion<Tab>
+_node_only_js() {
+  compadd -X  -- *.js *.mjs *.cjs
+}
+compdef _node_only_js node
 
 
 

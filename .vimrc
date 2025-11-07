@@ -4,11 +4,12 @@ let g:ycm_confirm_extra_conf = 0
 " Enable line numbers
 set backupcopy=yes
 set ignorecase
+set number
+set relativenumber
 " Basic UI tweaks
 set showmode
 set showcmd
 set wrap
-set foldmethod=syntax
 " Syntax and filetype support
 
 
@@ -18,7 +19,7 @@ filetype plugin indent on
 inoremap [ []<Left>
 inoremap ( ()<Left>
 inoremap { {}<Left>
-inoremap < <><Left>
+"inoremap < <><Left>
 inoremap ' ''<Left>
 inoremap " ""<Left> 
 inoremap $ $$<Left>
