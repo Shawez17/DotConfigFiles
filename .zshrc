@@ -1,14 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 #export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 #Zsh terminal setup
+export PATH="/usr/local/bin:$PATH"
 export PATH="/opt/homebrew/opt/qt@5/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.14/bin:$PATH"
-export PATH="/opt/homebrew/bin/node:$PATH"
 setopt extended_glob
 setopt dot_glob
 export PATH="/Library/TeX/texbin:$PATH"
 #gnu arm toolchain
-
+autoload -Uz compinit
+compinit
 export PATH=~/stm32/gcc-arm/gcc-arm-mac-main/bin:$PATH
 #compiling shorcut, Works under directory /Users/bears/random
 alias vjs='vi jam.js'
@@ -39,12 +40,25 @@ echo -e "${NEWLINE}\x1b[38;5;137m\x1b[48;5;0m it's $(date '+%I:%M %p') \x1b[38;5
 #highlight package source
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# load modules
-#zmodload zsh/complist
-#autoload -U compinit && compinit
-#autoload -U colors && colors
-# autoload -U tetris
+#accounts i follow
+alias alice='open "https://www.youtube.com/@AliceCappelle/videos"'
+alias robin='open "https://www.youtube.com/@RCWaldun/videos"'
+alias dave='open "https://www.youtube.com/@yousuckatprogramming/videos"'
+alias andrew='open "https://www.youtube.com/@and_loura/videos"'
+alias bread='open "https://www.youtube.com/@BreadOnPenguins/videos"'
+alias shehzad='open "https://www.youtube.com/@theshehzadshow/videos"'
+alias james='open "https://www.youtube.com/@jvscholz/videos"'
 
+alias jabeen='open -a DuckDuckGo "https://www.instagram.com/mohammed_jabeen/"'
+alias virdas'open -a DuckDuckGo "https://www.instagram.com/virdas/"'
+alias rohit='open -a DuckDuckGo "https://www.instagram.com/rohitraghv_/"'
+alias batool='open -a DuckDuckGo "https://www.instagram.com/rohitraghv_/"'
+alias sukh='open -a DuckDuckGo "https://www.instagram.com/pavemented/"'
+alias pradeep='open -a DuckDuckGo "https://www.instagram.com/pseudoinsudo/"'
+alias naman='open -a DuckDuckGo "https://www.instagram.com/pinniaata/"'
+alias prish='open -a DuckDuckGo "https://www.instagram.com/prishisnotreal/"'
+alias rojo='open -a DuckDuckGo "https://www.instagram.com/mojorojo/"'
+alias yukta='open -a DuckDuckGo "https://www.instagram.com/theyutikasagar/"'
 #SPELLING alias
 alias v='vi'
 alias ytsubs='open "https://www.youtube.com/feed/subscriptions/"'
@@ -53,7 +67,7 @@ alias phplocal='php -S localhost:8000'
 alias c='clear'
 alias grep='grep --color=auto'
 alias sleep='pmset sleepnow'
-alias sqlp='mysql -u shawez -p' #password: your_password_here
+alias sqlp='mysql shawez' #password: your_password_here
 alias gnu='gnuradio-companion'
 #SHORTCUT alias
 
