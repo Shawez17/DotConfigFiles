@@ -1,3 +1,10 @@
+background: var(--yt-spec-base-background);
+
+.ytdapp{
+    backdround: none !important
+}
+
+
 .ytd-thumbnail {
   border-radius: 10% !important;
 }
@@ -15,6 +22,19 @@
 
 
 }
+
+
+
+
+.ytd-two-column-search-results-renderer{
+
+    background-color: #1c1c1ci; !important
+    opacity: 0.8; !important
+}
+
+
+
+
 /*anoying darkmode*/
 .ytp-gradient-bottom{
     display: none !important
@@ -35,7 +55,9 @@
   margin: 0 !important;
   display: none !important;
 }
-ytd-mini-guide-renderer, 
-ytd-guide-renderer {
+.ytd-mini-guide-renderer, 
+.ytd-guide-renderer {
   display: none !important;
 }
+
+

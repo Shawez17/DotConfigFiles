@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+echo "URL: $QUTE_URL$"
+
+
