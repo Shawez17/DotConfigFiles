@@ -7,7 +7,8 @@
 import pywalQute.draw
 
 config.load_autoconfig(True)
-
+c.statusbar.show = "always"
+c.colors.statusbar.command.bg = "black"
 pywalQute.draw.color(c, {
     'spacing': {
         'vertical': 6,
@@ -21,11 +22,24 @@ pywalQute.draw.color(c, {
 # last argument (optional, default is False): enable the plain look for the menu rows
 # catppuccin.setup(c, 'mocha', True) #catpuccin thingy
 
+#status bar
+
 c.content.pdfjs=True
-
-
+c.colors.statusbar.command.fg='#FFFFFF'
+# Something something bread recommends
+config.set("content.webgl", False, "*")
+config.set("content.canvas_reading", False)
+config.set("content.geolocation", False)
+config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
+config.set("content.cookies.accept", "all")
+config.set("content.cookies.store", True)
 
 #keybinding
+#config.source('themes/qute-city-lights/city-lights-theme.py') #theme
+
+config.bind('tH', 'config-cycle tabs.show multiple never')
+config.bind('sH', 'config-cycle statusbar.show always never')
+config.bind('a','open -t !arch') ## i dont have ajob so nothign stop me.this is for archwiki
 config.bind('w','config-source') ## ultra useful when playing with it
 config.bind('r','reload') #some site wont open , so this works
 config.bind('gj','tab-move -')
@@ -45,6 +59,8 @@ config.bind('<shift-k>','tab-next')
 config.bind('o', 'cmd-set-text -s :open -t') #modify
 config.bind('u', 'cmd-set-text -s :open -t !yt') #for utube,alternative to  hands on 
 config.bind('x', 'cmd-set-text -s :open -t !reddit') #father of all internet conversation about any topic, an initial booster in learning new stuff
+config.bind('<shift-x>','cmd-set-text -s :open -t !wiki') #father of all internet conversation about any topic, an initial booster in learning new stuff
+config.bind('c','cmd-set-text -s : open -t chatgpt.com')
 config.bind('z', 'cmd-set-text -s :open -t !lib') #library for arcticle
 config.bind('<cmd-=>', 'zoom-in') # trick way of writing cmd++ for zoom , cause just '+' sucks
 config.bind('<cmd-->', 'zoom-out')
@@ -53,7 +69,8 @@ for mode in ["normal", "caret"]:
     config.bind('gs', 'spawn --userscript yomichad', mode=mode)
     config.bind('gS', 'spawn --userscript yomich/ad --prefix-search', mode=mode)
 
-#darkmode
+#darkmodeA
+c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.policy.images = 'never'
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.statusbar.show = 'in-mode'
@@ -73,13 +90,22 @@ c.content.user_stylesheets = [
     #"~/.qutebrowser/style/neet-tweaks.css"
 ]
 # theme
+c.tabs.title.format = "{audio}{current_title}"
+c.fonts.web.size.default = 20
 
 
 #fonts, i doubt this works as intended!
+c.fonts.default_family = []
+c.fonts.default_size = '17pt'
 c.fonts.web.family.fixed = 'Arial Narrow'
 c.fonts.web.family.sans_serif = 'Arial Narrow'
 c.fonts.web.family.serif = 'Arial Narrow'
 c.fonts.web.family.standard = 'Arail Narrow'
+
+
+#blocking
+c.content.blocking.enabled = True
+
 
 #search engine
 c.url.searchengines = {
@@ -94,7 +120,11 @@ c.url.searchengines = {
         '!ht' : 'https://www.hotstar.com/in/explore?search_query={}',
         '!mubi' : 'https://mubi.com/en/search/films?query={}',
         '!lib' : 'https://z-library.sk/s/{}',
-        '!snap': 'https://www.snapeda.com/search/?q={}&search-type=parts'
+        '!snap' : 'https://www.snapeda.com/search/?q={}&search-type=parts',
+        '!file' : 'https://www.file-extensions.org/search?search={}',
+        '!cc':'https://en.cppreference.com/index.php?search={}&title=Special%3ASearch&go=',
+        '!esp': 'https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/search.html?q={}&check_keywords=yes&area=default'
+
 #https://neetcode.io/problems/generate-parentheses?list=neetcode150
         }
 
