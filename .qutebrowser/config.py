@@ -7,7 +7,6 @@
 import pywalQute.draw
 
 config.load_autoconfig(True)
-c.statusbar.show = "always"
 c.colors.statusbar.command.bg = "black"
 pywalQute.draw.color(c, {
     'spacing': {
@@ -21,9 +20,9 @@ pywalQute.draw.color(c, {
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
 # last argument (optional, default is False): enable the plain look for the menu rows
 # catppuccin.setup(c, 'mocha', True) #catpuccin thingy
-
-#status bar
-
+c.statusbar.position="top" # took me lot of tie and the erro was 'i' in position word
+c.colors.statusbar.insert.bg='#000000'#status bar -> insert mode
+c.colors.statusbar.insert.fg='#ff00d1'
 c.content.pdfjs=True
 c.colors.statusbar.command.fg='#FFFFFF'
 # Something something bread recommends
@@ -48,7 +47,7 @@ config.bind('<shift-cmd-left>','tab-prev')
 config.bind('<shift-cmd-right>','tab-next')
 config.bind('h','history')
 config.bind('dc','download-clear')
-config.bind('<cmd-f>','spawn open -a firefox {url}')
+config.bind('<cmd-f>','spawn open -a Brave\ Browser.app {url}')
 config.bind(
     '<ctrl-m>',
     'spawn /opt/homebrew/bin/mpv "{url}"'
@@ -60,7 +59,7 @@ config.bind('o', 'cmd-set-text -s :open -t') #modify
 config.bind('u', 'cmd-set-text -s :open -t !yt') #for utube,alternative to  hands on 
 config.bind('x', 'cmd-set-text -s :open -t !reddit') #father of all internet conversation about any topic, an initial booster in learning new stuff
 config.bind('<shift-x>','cmd-set-text -s :open -t !wiki') #father of all internet conversation about any topic, an initial booster in learning new stuff
-config.bind('c','cmd-set-text -s : open -t chatgpt.com')
+config.bind('g','cmd-set-text -s : open -t chatgpt.com')
 config.bind('z', 'cmd-set-text -s :open -t !lib') #library for arcticle
 config.bind('<cmd-=>', 'zoom-in') # trick way of writing cmd++ for zoom , cause just '+' sucks
 config.bind('<cmd-->', 'zoom-out')
@@ -73,7 +72,7 @@ for mode in ["normal", "caret"]:
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.policy.images = 'never'
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
-c.statusbar.show = 'in-mode'
+c.statusbar.show = 'always'
 c.downloads.location.directory = '~/Downloads/qutebrowser_files/'
 c.fonts.default_family = ['Arial Narrow', 'Arial']
 c.fonts.default_size = '19pt' # tab
@@ -123,7 +122,9 @@ c.url.searchengines = {
         '!snap' : 'https://www.snapeda.com/search/?q={}&search-type=parts',
         '!file' : 'https://www.file-extensions.org/search?search={}',
         '!cc':'https://en.cppreference.com/index.php?search={}&title=Special%3ASearch&go=',
-        '!esp': 'https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/search.html?q={}&check_keywords=yes&area=default'
+        '!esp': 'https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/search.html?q={}&check_keywords=yes&area=default',
+        '!ytm':'https://music.youtube.com/search?q={}',
+        '!flix':'https://www.netflix.com/search?q={}'
 
 #https://neetcode.io/problems/generate-parentheses?list=neetcode150
         }

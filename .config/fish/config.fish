@@ -41,14 +41,21 @@ if status is-interactive
 end
 
 #prompt
+#function fish_prompt
+#    string join '' --  (set_color ff00dd)Shawez\'sApplePie(set_color 6cff00)','(set_color ffd800) (prompt_pwd) (set_color ffd800) '>'
+
+#end
+
+#prompt
 function fish_prompt
-    string join '' --  (set_color ff00dd)Shawez\'sApplePie(set_color 6cff00)','(set_color ffd800) (prompt_pwd) (set_color ffd800) '>'
+    string join '' --  (set_color ff00dd)Shawez\'sApplePie(set_color 6cff00)','(set_color ffd800) '>'
 
 end
 
 
 
 #aliases to command, thanks Alex
+alias rustc='rustc -Awarnings'
 alias c='clear'
 alias v='vim'
 alias vi='vim'
