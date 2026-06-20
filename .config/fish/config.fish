@@ -30,27 +30,27 @@ end
 ## for pywal, escape sequence suport
 function wals
     source ~/Public/myenv/bin/activate.fish      
-    wal -i $argv
+    wal -i "$argv" 
     kitty @ set-colors -a -c ~/.cache/wal/colors-kitty.conf
 end
 
 
 # greeting
 if status is-interactive
-    set -U fish_greeting "House of Rising Sun --"
+    set -U fish_greeting "dynamic thingy here"
+end
+
+#prompt
+function fish_prompt
+    string join '' --  (set_color ff00dd)Shawez\'sApplePie(set_color 6cff00)','(set_color ffd800) (prompt_pwd) (set_color ffd800) '>'
+
 end
 
 #prompt
 #function fish_prompt
-#    string join '' --  (set_color ff00dd)Shawez\'sApplePie(set_color 6cff00)','(set_color ffd800) (prompt_pwd) (set_color ffd800) '>'
+#string join '' --  (set_color ff00dd)~ (set_color 6cff00)','(set_color ffd800) '>'
 
-#end
-
-#prompt
-function fish_prompt
-    string join '' --  (set_color ff00dd)Shawez\'sApplePie(set_color 6cff00)','(set_color ffd800) '>'
-
-end
+    #end
 
 
 
@@ -97,4 +97,3 @@ alias cute='open -n "/Applications/qutebrowser.app/"'
 
 
 
-thefuck --alias | source

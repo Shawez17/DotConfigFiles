@@ -47,7 +47,8 @@ config.bind('<shift-cmd-left>','tab-prev')
 config.bind('<shift-cmd-right>','tab-next')
 config.bind('h','history')
 config.bind('dc','download-clear')
-config.bind('<cmd-f>','spawn open -a Brave\ Browser.app {url}')
+config.bind('<cmd-r>','spawn open -a Brave\ Browser.app {url}')
+config.bind('<cmd-f>','spawn open -a Firefox {url}')
 config.bind(
     '<ctrl-m>',
     'spawn /opt/homebrew/bin/mpv "{url}"'
@@ -59,7 +60,8 @@ config.bind('o', 'cmd-set-text -s :open -t') #modify
 config.bind('u', 'cmd-set-text -s :open -t !yt') #for utube,alternative to  hands on 
 config.bind('x', 'cmd-set-text -s :open -t !reddit') #father of all internet conversation about any topic, an initial booster in learning new stuff
 config.bind('<shift-x>','cmd-set-text -s :open -t !wiki') #father of all internet conversation about any topic, an initial booster in learning new stuff
-config.bind('g','cmd-set-text -s : open -t chatgpt.com')
+config.bind('g','cmd-set-text -s : open -t chatgpt.com') # llm
+config.bind('a','cmd-set-text -s : open -t !rust') # rust
 config.bind('z', 'cmd-set-text -s :open -t !lib') #library for arcticle
 config.bind('<cmd-=>', 'zoom-in') # trick way of writing cmd++ for zoom , cause just '+' sucks
 config.bind('<cmd-->', 'zoom-out')
@@ -104,12 +106,20 @@ c.fonts.web.family.standard = 'Arail Narrow'
 
 #blocking
 c.content.blocking.enabled = True
+c.content.blocking.adblock.lists = [
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt",
+]
 
 
 #search engine
 c.url.searchengines = {
 # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
         'DEFAULT': 'https://duckduckgo.com/?q={}',
+        '!law' : 'https://www.lawinsider.com/search?q={}',
+        '!ff' : 'https://fullforms.com/{}',
+        '!robu':'https://robu.in/?s={}&post_type=product',
+        '!tv' : 'https://tv.apple.com/in/search?term={}',
         '!pip' :'https://pypi.org/search/?q={}',
         '!pt': 'https://in.pinterest.com/search/pins/?q={}',
         '!gh': 'https://github.com/search?o=desc&q={}&s=stars',
@@ -124,7 +134,9 @@ c.url.searchengines = {
         '!cc':'https://en.cppreference.com/index.php?search={}&title=Special%3ASearch&go=',
         '!esp': 'https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/search.html?q={}&check_keywords=yes&area=default',
         '!ytm':'https://music.youtube.com/search?q={}',
-        '!flix':'https://www.netflix.com/search?q={}'
+        '!flix':'https://www.netflix.com/search?q={}',
+        '!rust': 'https://doc.rust-lang.org/std/?search={}',
+        '!bay' : 'https://thepiratebay.org/search.php?q={}&all=on&search=Pirate+Search&page=0&orderby='
 
 #https://neetcode.io/problems/generate-parentheses?list=neetcode150
         }
