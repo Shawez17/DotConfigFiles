@@ -1,25 +1,30 @@
 
 
+
 # import catppuccin # catpuccin thingy
 
 # load your autoconfig, use this, if the rest of your config is empty!
 
-import pywalQute.draw
+#import pywalQute.draw
 
-config.load_autoconfig(True)
-c.colors.statusbar.command.bg = "black"
-pywalQute.draw.color(c, {
-    'spacing': {
-        'vertical': 6,
-        'horizontal': 8
-    }
-})
-
+#config.load_autoconfig(True)
+#c.colors.statusbar.command.bg = "black"
+#pywalQute.draw.color(c, {
+#    'spacing': {
+#        'vertical': 6,
+#        'horizontal': 8
+#    }
+#})
+import os
+config.load_autoconfig()
+if os.path.exists(config.configdir / "theme.py"):
+    config.source('theme.py')
 
 # set the flavor you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
 # last argument (optional, default is False): enable the plain look for the menu rows
 # catppuccin.setup(c, 'mocha', True) #catpuccin thingy
+c.url.start_pages="https://austinkleon.com/" # ok this is my startup
 c.statusbar.position="top" # took me lot of tie and the erro was 'i' in position word
 c.colors.statusbar.insert.bg='#000000'#status bar -> insert mode
 c.colors.statusbar.insert.fg='#ff00d1'
@@ -32,6 +37,7 @@ config.set("content.geolocation", False)
 config.set("content.webrtc_ip_handling_policy", "default-public-interface-only")
 config.set("content.cookies.accept", "all")
 config.set("content.cookies.store", True)
+#config.source('qutebrowser-matrix.py')
 
 #keybinding
 #config.source('themes/qute-city-lights/city-lights-theme.py') #theme
@@ -48,7 +54,8 @@ config.bind('<shift-cmd-right>','tab-next')
 config.bind('h','history')
 config.bind('dc','download-clear')
 config.bind('<cmd-r>','spawn open -a Brave\ Browser.app {url}')
-config.bind('<cmd-f>','spawn open -a Firefox {url}')
+config.bind('<cmd-f>','spawn open -a Safari {url}')
+config.bind('<cmd-s>','spawn open -a /Applications/Safari.app {url}')
 config.bind(
     '<ctrl-m>',
     'spawn /opt/homebrew/bin/mpv "{url}"'
@@ -59,6 +66,9 @@ config.bind('<shift-k>','tab-next')
 config.bind('o', 'cmd-set-text -s :open -t') #modify
 config.bind('u', 'cmd-set-text -s :open -t !yt') #for utube,alternative to  hands on 
 config.bind('x', 'cmd-set-text -s :open -t !reddit') #father of all internet conversation about any topic, an initial booster in learning new stuff
+config.bind('m', 'cmd-set-text -s :open -t https://latexconvert.com/')
+#config.bind('c', 'cmd-set-text -s :open -t !cover')
+
 config.bind('<shift-x>','cmd-set-text -s :open -t !wiki') #father of all internet conversation about any topic, an initial booster in learning new stuff
 config.bind('g','cmd-set-text -s : open -t chatgpt.com') # llm
 config.bind('a','cmd-set-text -s : open -t !rust') # rust
@@ -77,22 +87,22 @@ c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.statusbar.show = 'always'
 c.downloads.location.directory = '~/Downloads/qutebrowser_files/'
 c.fonts.default_family = ['Arial Narrow', 'Arial']
-c.fonts.default_size = '19pt' # tab
+c.fonts.default_size = '18pt' # tab
 c.content.default_encoding = 'utf-8'
 
 #Colos
-#c.colors.webpage.bg = '#00a7d7'
+c.colors.webpage.bg = '#00a7d7'
 
 #pages call
 #pages call
 c.content.user_stylesheets = [
-    "~/.qutebrowser/style/tube-tweaks.css",
+    #"~/.qutebrowser/style/tube-tweaks.css",
     "~/.qutebrowser/style/nptel-tweaks.css",
     #"~/.qutebrowser/style/neet-tweaks.css"
 ]
 # theme
 c.tabs.title.format = "{audio}{current_title}"
-c.fonts.web.size.default = 20
+c.fonts.web.size.default = 18
 
 
 #fonts, i doubt this works as intended!
@@ -116,6 +126,12 @@ c.content.blocking.adblock.lists = [
 c.url.searchengines = {
 # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
         'DEFAULT': 'https://duckduckgo.com/?q={}',
+        '!kav' : 'https://www.hindwi.org/search/all?q={}',
+        '!kym' : 'https://knowyourmeme.com/search?context=&sort=&q={}',
+        '!cover' : 'https://itunes.apple.com/search?term={}&entity=song&limit=1',
+        '!poe' : 'https://www.poetryfoundation.org/search?query={}',
+        '!urdu' : 'https://rekhtadictionary.com/search?keyword={}',
+        '!ap': 'https://link.apple.com/account/create/subscribe-success?product=tv&qr={}',
         '!law' : 'https://www.lawinsider.com/search?q={}',
         '!ff' : 'https://fullforms.com/{}',
         '!robu':'https://robu.in/?s={}&post_type=product',
@@ -136,8 +152,10 @@ c.url.searchengines = {
         '!ytm':'https://music.youtube.com/search?q={}',
         '!flix':'https://www.netflix.com/search?q={}',
         '!rust': 'https://doc.rust-lang.org/std/?search={}',
-        '!bay' : 'https://thepiratebay.org/search.php?q={}&all=on&search=Pirate+Search&page=0&orderby='
+        '!bay' : 'https://thepiratebay.org/search.php?q={}&all=on&search=Pirate+Search&page=0&orderby=',
+        '!shit' : 'https://www.alldatasheet.com/view.jsp?Searchword={}'
 
+    
 #https://neetcode.io/problems/generate-parentheses?list=neetcode150
         }
 
