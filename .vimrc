@@ -5,10 +5,12 @@
 let g:alduin_Shout_Fire_Breath = 1
 set mouse=a
 " set spell
+set ignorecase
 " vim bindings
 " visual mode
 " Open PDF with same basename as current file
-nnoremap <leader>op :open -a sioyek %:r.pdf<CR>
+" nnoremap <leader>op :silent !sioyek %:r.pdf<CR>
+nnoremap <leader>op :!open -a /Applications/sioyek.app/ %:r.pdf<CR>
 " compile vim+latex
 nnoremap <leader>vl :!latexmk -pdf %<CR> 
 " insert mode
@@ -26,13 +28,12 @@ nnoremap yy "+yy
 nnoremap Y "+Y
 vnoremap y "+y
 set backupcopy=yes
-set ignorecase
 set number
 set relativenumber
 
 " Basic UI tweaks
 
-set noshowmode
+" set noshowmode
 set showcmd
 " set wrap
 set guifont=ArialNarrow12
@@ -40,7 +41,7 @@ set guifont=ArialNarrow12
 
 
 " Syntax and filetype support
-nnoremap <C-t> :NERDTreeToggle <CR>
+" nnoremap <C-t> :NERDTreeToggle <CR>
 syntax on
 filetype plugin indent on
 inoremap [ []<Left>
@@ -57,7 +58,9 @@ set tabstop=4        " width of tab character
 set shiftwidth=4     " width for autoindent
 set expandtab        " use spaces instead of tabs
 
+
 " Override/Load for specific file
+
 augroup css_template
   autocmd!
   autocmd BufNewFile *.css 0r ~/.vim/templates/css_template.css
@@ -77,7 +80,7 @@ augroup END
 "      autocmd!
 "      autocmd BufNewFile *.tex 0r ~/.vim/templates/template.tex macros.tex preamble.tex letterfonts.tex 
 "    augroup END
-
+" some problem
 augroup js_braces
   autocmd!
   autocmd FileType javascript,css,c,php,cpp,arduino,rs inoremap { {<CR>}<Esc>O
@@ -138,7 +141,7 @@ let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdm'
 
-Plug 'plasticboy/vim-markdown'
+" let g:vim_markdown_folding_level = 1
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'AlessandroYorba/Alduin'
 "Optional: Color scheme (white-on-black)
@@ -157,4 +160,3 @@ syntax enable
 " Python-specific settings
 let g:python3_host_prog = '/usr/bin/python3'
 autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
-
