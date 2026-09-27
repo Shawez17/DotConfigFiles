@@ -15,7 +15,30 @@ function ac
     command arduino-cli $argv | less
 end
 
+function gi
+    echo "submitting dot to the universe"
 
+    if test "$PWD" = "/Users/bears"
+        git add .qutebrowser/config.py .config/fish/config.fish .vimrc
+        git commit -m "$argv[1]"
+        git push origin main
+
+    else if test "$PWD" = "/Users/bears/Downloads/dev"
+        git add "$argv[1]"
+        git commit -m "initialise submission $argv[2]"
+        git push origin master
+
+    else if test "$PWD" = "/Users/bears/Notes"
+        git add "$argv[1]"
+        git commit -m "initialise submission $argv[2]"
+        git push origin main
+
+    else
+        echo "gi: unknown directory: $PWD"
+        return 1
+    end
+
+end
 
 
 ##firmware flashing thingy(serial)
@@ -133,31 +156,23 @@ end
 
 #aliases to command, thanks Alex
 #alias qt= 'cd ~/.qutebrowser/style/'
-alias fillum= 'cd /Users/bears/Movies/TV/Media.localized/Home_Videos'
+alias dev='cd /Users/bears/Downloads/dev'
 alias tft='cd /Users/bears/Library/Arduino15/staging/libraries/Adafruit_ST7735_and_ST7789_Library-1.11.0/examples/graphicstest'
 alias ard='cd /Users/bears/Library/Arduino15'
-alias uc='cd /Users/bears/Downloads/kicad/chand/chandra_queenofnight_draft3/microcontroller'
 alias wire='cd /Users/bears/Library/Arduino15/packages/esp32/hardware/esp32/3.3.8/libraries/Wire/examples/WireScan'
 alias avrtool='avrdude -c arduino -p atmega328p -P /dev/cu.usbserial-1110 -v'
 alias fzf='fzf | pbcopy'
-alias dw='cd ~/Downloads/'
-alias arr='cd /Users/bears/Downloads/voices/Poster/'
-alias lora='cd /Users/bears/zkn_notes/problems/cpp/justToBeSafe/luckyman/'
 alias o='open'
 alias stm-cli='/opt/ST/STM32CubeCLT_1.22.0/STM32CubeProgrammer/bin/STM32_Programmer_CLI'
 alias mypy='source /Users/bears/Public/myenv/bin/activate.fish'
-alias movies='cd '/Users/bears/Movies/TV/Media.localized/Home_Videos''
-alias jassie='cd /Users/bears/Library/Application\ Support/com.apple.wallpaper/aerials/videos/'
-alias muse='cd /Users/bears/Downloads/sound/'
+#alias jassie='cd /Users/bears/Library/Application\ Support/com.apple.wallpaper/aerials/videos/'
 alias rustc='rustc -Awarnings'
 alias c='clear'
 alias v='vim'
 alias vi='vim'
 alias mv='mv -i'
 alias rm='rm -i'
-alias freecad='/Applications/FreeCAD.app/Contents/Resources/bin/freecad'
-alias dream='echo January && bat *.md | grep Jan |wc && echo Feburary && bat *.md | grep Feb |wc && echo March && bat *.md | grep Mar |wc && echo April && bat *.md | grep Apr |wc && echo May && bat *.md | grep May |wc && echo June && bat *.md | grep Jun |wc && echo July && bat *.md | grep Jul |wc'
-
+alias dream='cd ~/Notes/dreams/'
 #aliases to file/directories
 alias picotool_mbd='/Users/bears/Library/Arduino15/packages/arduino/tools/rp2040tools/1.0.6/picotool'
 
