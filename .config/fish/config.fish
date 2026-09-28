@@ -19,7 +19,7 @@ function gi
     echo "submitting dot to the universe"
 
     if test "$PWD" = "/Users/bears"
-        git add .qutebrowser/config.py .config/fish/config.fish .vimrc
+        git add .qutebrowser/config.py .config/fish/config.fish .vimrc .config/sioyek/keys_user.config .config/sioyek/prefs_user.config
         git commit -m "$argv[1]"
         git push origin main
 
@@ -192,7 +192,7 @@ alias qc='vim ~/.qutebrowser/config.py'
 alias kicad_cli='/Applications/KiCad/KiCad.app/Contents/MacOS/kicad-cli'
 alias lfd='cd '~/Movies/TV/Media.localized/Home_Videos/' && ls '~/Movies/TV/Media.localized/Home_Videos/''
 alias smps='cd '/Users/bears/Downloads/kicad/chand/chandra_queenofnight_draft3/' && ls '.'' #for embedded
-alias note='cd "/Users/bears/zkn_notes/"'
+alias note='cd "/Users/bears/Notes/"'
 alias wz='v '~/.wezterm.lua''
 #alias niti='v "~/.config/nvim/init.lua"'
 #alias show='/opt/homebrew/Caskroom/freecad/1.1.1/FreeCAD.app/Contents/MacOS/FreeCAD'

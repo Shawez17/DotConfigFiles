@@ -46,7 +46,7 @@ config.bind('<cmd-p>','open -t https://www.adobe.com/home?fb=3&mv=other&promoid=
 config.bind('<cmd-o>','open -t https://cad.onshape.com/documents?nodeId=0&resourceType=filter')
 # config.bind('<cmd-f>','spawn open -a Safari {url}')
 config.bind('<cmd-b>','open -t https://tootalltoby.com/practice/')
-config.bind('<cmd-s>','spawn open -a /Applications/Safari.app {url}')
+config.bind('<cmd-s>','spawn open -a /Applications/Google\ Chrome.app/ {url}')
 config.bind(
     '<ctrl-m>',
     'spawn /opt/homebrew/bin/mpv "{url}"'
