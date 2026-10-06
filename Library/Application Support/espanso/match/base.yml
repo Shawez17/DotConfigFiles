@@ -1,0 +1,31 @@
+matches:
+- trigger : ":mail"
+  replace : "shaikhshawezmath@gmail.com"
+
+- trigger : ":@"
+  replace : "@gmail.com"
+
+- trigger: ":regards"
+  replace: |
+    Regards,
+    Shawez 
+
+- trigger: ":og"
+  replace: "Original-Motion-Picture-Soundtrack"
+
+- trigger: ":begin"
+  replace: "\\begin{}\n\n\\end{}"
+- trigger: ":br"
+  replace: "Bolt Remove"
+
+- trigger: ":hvg"
+  replace: "Head Valve Guide"
+
+- trigger: ":mb"
+  replace: "Metal Bush"
+
+- trigger: ":sb"
+  replace: "Swing Bearing"
+- trigger: ":fo"
+  replace: "Fork Out Alignment"
+

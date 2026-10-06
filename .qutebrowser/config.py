@@ -38,6 +38,12 @@ config.bind('gk','tab-move +')
 config.bind('<shift-cmd-left>','tab-prev')
 config.bind('<shift-cmd-right>','tab-next')
 config.bind('h','history')
+for mode in ["normal", "caret"]:
+    config.bind(
+        '<cmd-y>',
+        'yank selection ;; spawn --userscript qute-highlight-save',
+        mode=mode
+    )
 #config.bind('','cmd-set-text -s :open -t !dict')#dictionary
 config.bind('dc','download-clear')
 config.bind('<cmd-r>','open -t https://link.apple.com')
@@ -47,17 +53,14 @@ config.bind('<cmd-o>','open -t https://cad.onshape.com/documents?nodeId=0&resour
 # config.bind('<cmd-f>','spawn open -a Safari {url}')
 config.bind('<cmd-b>','open -t https://tootalltoby.com/practice/')
 config.bind('<cmd-s>','spawn open -a /Applications/Google\ Chrome.app/ {url}')
-config.bind(
-    '<ctrl-m>',
-    'spawn /opt/homebrew/bin/mpv "{url}"'
-)
+config.bind('m','open -t https://messages.google.com/web/u/2/conversations')
+
 config.bind('<ctrl-t>', 'spawn open -a WezTerm') #ultra useful aas i heavily rely on command line utility, terminal at my chose next to browser save time
 config.bind('<shift-j>','tab-prev')
 config.bind('<shift-k>','tab-next')
 config.bind('o', 'cmd-set-text -s :open -t') #modify
 config.bind('u', 'cmd-set-text -s :open -t !yt') #for utube,alternative to  hands on 
 config.bind('x', 'cmd-set-text -s :open -t !reddit') #father of all internet conversation about any topic, an initial booster in learning new stuff
-config.bind('m','cmd-set-text -s :open -t https://music.apple.com/library/playlist/')
 config.bind('e','cmd-set-text -s :open -t https://web.whatsapp.com/')# openning whatsapp
 config.bind(']', 'cmd-set-text -s :open -t https://latexconvert.com/')
 config.bind('[' ,'cmd-set-text -s :open -t https://formulae.brew.sh/')
@@ -66,8 +69,8 @@ config.bind('[' ,'cmd-set-text -s :open -t https://formulae.brew.sh/')
 config.bind('<shift-x>','cmd-set-text -s :open -t !wiki') #father of all internet conversation about any topic, an initial booster in learning new stuff
 config.bind('\\', 'cmd-set-text -s : open -t https://pico.pinout.xyz/#i=siupl') #pico
 # config.bind('t','cmd-set-text -s : open -t https://docs.espressif.com/projects/arduino-esp32/en/latest/_images/esp32_devkitC_pinlayout.png') # esp32
-config.bind('g','cmd-set-text -s : open -t chatgpt.com') # llm
-config.bind('a','cmd-set-text -s : open -t !rust') # rust
+config.bind('g','cmd-set-text -s : open -t https://github.com/copilot/c/0fcad0b2-1ef8-4e12-908c-b012ef5d5cde') # llm
+#config.bind('a','cmd-set-text -s : open -t !rust') # rust
 config.bind('z', 'cmd-set-text -s :open -t !lib') #library for arcticle
 config.bind('}', 'cmd-set-text -s :open -t https://www.youtube.com/feed/subscriptions/')
 config.bind('<cmd-=>', 'zoom-in') # trick way of writing cmd++ for zoom , cause just '+' sucks
@@ -127,6 +130,23 @@ c.content.blocking.adblock.lists = [
 c.url.searchengines = {
 # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
         'DEFAULT': 'https://duckduckgo.com/?q={}',
+        '!nauman' : 'https://www.youtube.com/@bayyinah/search?query={}',
+        '!shilpa': 'https://www.youtube.com/@ShilpaRaoLive/search?query={}',
+        '!taksh': 'https://www.youtube.com/@ashishtorq/search?query={}',
+        '!flix' : 'https://www.netflix.com/search?q={}',
+        '!austin' : 'https://austinkleon.com/?s={}',
+        '!dict' : 'https://en.wiktionary.org/w/index.php?search={}&title=Special:Search&ns0=1',
+        '!4' : 'https://www.youtube.com/@SucharitaTyagi/search?query={}',
+        '!lary': 'https://www.youtube.com/@Algorithmist/search?query={}',
+        '!jvscolz' : 'https://www.youtube.com/@jvscholz/search?query={}',
+        '!jvscolz-study' : 'https://www.youtube.com/@jamesvinhscholz/search?query={}',
+        '!nerdwriter' : 'https://www.youtube.com/@Nerdwriter1/search?query={}',
+        '!zakir' : 'https://www.youtube.com/@ZakirKhan/search?query={}',
+        '!mubi':'https://www.youtube.com/@mubi/search?query={}',
+        '!teded' : 'https://www.youtube.com/@TEDEd/search?query={}',
+        '!surendra' : 'https://www.youtube.com/@rajivsurendra/search?query={}',
+        '!insta' : 'https://www.instagram.com/{}',
+        '!nothing': 'https://www.youtube.com/@NothingTechnology/search?query={}',
         '!linkedin' : 'https://www.linkedin.com/in/shawez-shaikh{}',
         '!bms': 'https://in.bookmyshow.com/cinemas/MUMBAI/inox-r-city-ghatkopar/buytickets/INRC/2026{}',
         '!app' : 'https://link.apple.com/account/create/subscribe-success?product=tv&qr={}',
@@ -152,14 +172,12 @@ c.url.searchengines = {
         '!gog': 'https://www.geeksforgeeks.org/search/?gq={}',
         '!py' : 'https://docs.python.org/3/search.html?q={}',
         '!ht' : 'https://www.hotstar.com/in/explore?search_query={}',
-        '!mubi' : 'https://mubi.com/en/search/films?query={}',
         '!lib' : 'https://z-library.sk/s/{}',
         '!snap' : 'https://www.snapeda.com/search/?q={}&search-type=parts',
         '!file' : 'https://www.file-extensions.org/search?search={}',
         '!cc':'https://en.cppreference.com/index.php?search={}&title=Special%3ASearch&go=',
         '!esp': 'https://espressif-docs.readthedocs-hosted.com/projects/arduino-esp32/en/latest/search.html?q={}&check_keywords=yes&area=default',
         '!ytm':'https://music.youtube.com/search?q={}',
-        '!flix':'https://www.netflix.com/search?q={}',
         '!rust': 'https://doc.rust-lang.org/std/?search={}',
         '!bay' : 'https://thepiratebay.org/search.php?q={}&all=on&search=Pirate+Search&page=0&orderby=',
         '!shit' : 'https://www.alldatasheet.com/view.jsp?Searchword={}',
@@ -194,6 +212,4 @@ c.url.searchengines = {
 #        'horizontal': 8
 #    }
 #})
-
-
 

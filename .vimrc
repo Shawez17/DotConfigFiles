@@ -71,6 +71,12 @@ augroup html_template
   autocmd BufNewFile *.html 0r ~/.vim/templates/html_template.html
 augroup END
 
+
+augroup python_template
+  autocmd!
+  autocmd BufNewFile *.py 0r ~/.vim/templates/python_template.py
+augroup END
+
 augroup bash_var
   autocmd!
   autocmd FileType bash inoremap { <Esc>

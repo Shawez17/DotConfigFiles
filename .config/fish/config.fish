@@ -19,7 +19,7 @@ function gi
     echo "submitting dot to the universe"
 
     if test "$PWD" = "/Users/bears"
-        git add .qutebrowser/config.py .config/fish/config.fish .vimrc .config/sioyek/keys_user.config .config/sioyek/prefs_user.config
+        git add .qutebrowser/config.py .config/fish/config.fish .vimrc .config/sioyek/keys_user.config .config/sioyek/prefs_user.config /Users/bears/Library/Application\ Support/espanso/match/base.yml
         git commit -m "$argv[1]"
         git push origin main
 
@@ -156,6 +156,7 @@ end
 
 #aliases to command, thanks Alex
 #alias qt= 'cd ~/.qutebrowser/style/'
+alias espans='v /Users/bears/Library/Application\ Support/espanso/match/base.yml'
 alias dev='cd /Users/bears/Downloads/dev'
 alias tft='cd /Users/bears/Library/Arduino15/staging/libraries/Adafruit_ST7735_and_ST7789_Library-1.11.0/examples/graphicstest'
 alias ard='cd /Users/bears/Library/Arduino15'
