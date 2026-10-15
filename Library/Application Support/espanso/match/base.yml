@@ -5,10 +5,16 @@ matches:
 - trigger : ":@"
   replace : "@gmail.com"
 
-- trigger: ":regards"
+- trigger: ":regB"
   replace: |
     Regards,
-    Shawez 
+    Shawez
+    Bombay Auto Engineering
+
+- trigger: ":regR"
+  replace: |
+    Regards,
+    Shawez
 
 - trigger: ":og"
   replace: "Original-Motion-Picture-Soundtrack"

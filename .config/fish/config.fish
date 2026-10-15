@@ -28,6 +28,11 @@ function gi
         git commit -m "initialise submission $argv[2]"
         git push origin master
 
+    else if test "$PWD" = "/Users/bears/Downloads/epubs"
+        git add "$argv[1]"
+        git commit -m "initialise submission $argv[2]"
+        git push origin master
+
     else if test "$PWD" = "/Users/bears/Notes"
         git add "$argv[1]"
         git commit -m "initialise submission $argv[2]"
@@ -60,14 +65,14 @@ end
 function m115200_1
     arduino-cli monitor -p /dev/cu.usbserial-0001 -c baudrate=115200
 end
-
-function m9600_1
-    arduino-cli monitor -p /dev/cu.usbserial-0001 -c baudrate=9600
+function mac_115200_1
+    arduino-cli monitor -p /dev/cu.usbmodem1101 -c baudrate=115200
 end
+
 
 function vcrk_raspi
     arduino-cli compile --fqbn rp2040:rp2040:vicharak_shrike-lite --output-dir build .
-    arduino-cli upload -p /dev/cu.usbmodem1301 --fqbn rp2040:rp2040:vicharak_shrike-lite:UploadSpeed=115200
+    arduino-cli upload -p /dev/cu.usbmodem1101 --fqbn rp2040:rp2040:vicharak_shrike-lite
 end
 
 function espS
@@ -156,6 +161,7 @@ end
 
 #aliases to command, thanks Alex
 #alias qt= 'cd ~/.qutebrowser/style/'
+alias qute='cd /Users/bears/Downloads/qutebrowser_files && ls /Users/bears/Downloads/qutebrowser_files'
 alias espans='v /Users/bears/Library/Application\ Support/espanso/match/base.yml'
 alias dev='cd /Users/bears/Downloads/dev'
 alias tft='cd /Users/bears/Library/Arduino15/staging/libraries/Adafruit_ST7735_and_ST7789_Library-1.11.0/examples/graphicstest'

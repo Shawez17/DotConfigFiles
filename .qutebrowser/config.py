@@ -7,7 +7,7 @@ if os.path.exists(config.configdir / "theme.py"):
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
 # last argument (optional, default is False): enable the plain look for the menu rows
 # catppuccin.setup(c, 'mocha', True) #catpuccin thingy
-c.url.start_pages="https://austinkleon.com/" # ok this is my startup
+c.url.start_pages="https://start.duckduckgo.com/" # ok this is my startup
 c.statusbar.position="top" # took me lot of tie and the erro was 'i' in position word
 c.colors.statusbar.insert.bg='#000000'#status bar -> insert mode
 c.colors.statusbar.insert.fg='#ff00d1'
@@ -41,7 +41,7 @@ config.bind('h','history')
 for mode in ["normal", "caret"]:
     config.bind(
         '<cmd-y>',
-        'yank selection ;; spawn --userscript qute-highlight-save',
+        'spawn --userscript qute-highlight-save',
         mode=mode
     )
 #config.bind('','cmd-set-text -s :open -t !dict')#dictionary
@@ -87,7 +87,7 @@ c.colors.webpage.darkmode.policy.images = 'never'
 c.colors.webpage.darkmode.algorithm = 'lightness-cielab'
 c.statusbar.show = 'always'
 c.downloads.location.directory = '~/Downloads/qutebrowser_files/'
-c.fonts.default_family = ['Arial Narrow', 'Arial']
+c.fonts.default_family = ['Bradley hand', 'Arial']
 c.fonts.default_size = '18pt' # tab
 c.content.default_encoding = 'utf-8'
 
@@ -112,9 +112,9 @@ c.fonts.web.size.default = 18
 #fonts, i doubt this works as intended!
 c.fonts.default_family = []
 c.fonts.default_size = '17pt'
-c.fonts.web.family.fixed = 'Arial Narrow'
-c.fonts.web.family.sans_serif = 'Arial Narrow'
-c.fonts.web.family.serif = 'Arial Narrow'
+c.fonts.web.family.fixed = 'Bradley Hand'
+c.fonts.web.family.sans_serif = 'Bradley Hand'
+c.fonts.web.family.serif = 'Bradley Hand'
 c.fonts.web.family.standard = 'Arail Narrow'
 
 
@@ -130,6 +130,9 @@ c.content.blocking.adblock.lists = [
 c.url.searchengines = {
 # note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
         'DEFAULT': 'https://duckduckgo.com/?q={}',
+        '!faye' : 'https://www.youtube.com/@FayeDSouza/search?query={}',
+        '!mag': 'https://magazinelib.com/?s={}',
+        '!substack' : 'https://substack.com/search/{}?utm_source=global-search',
         '!nauman' : 'https://www.youtube.com/@bayyinah/search?query={}',
         '!shilpa': 'https://www.youtube.com/@ShilpaRaoLive/search?query={}',
         '!taksh': 'https://www.youtube.com/@ashishtorq/search?query={}',
@@ -145,7 +148,7 @@ c.url.searchengines = {
         '!mubi':'https://www.youtube.com/@mubi/search?query={}',
         '!teded' : 'https://www.youtube.com/@TEDEd/search?query={}',
         '!surendra' : 'https://www.youtube.com/@rajivsurendra/search?query={}',
-        '!insta' : 'https://www.instagram.com/{}',
+        '!insta' : 'https://www.google.com/search?q={}',
         '!nothing': 'https://www.youtube.com/@NothingTechnology/search?query={}',
         '!linkedin' : 'https://www.linkedin.com/in/shawez-shaikh{}',
         '!bms': 'https://in.bookmyshow.com/cinemas/MUMBAI/inox-r-city-ghatkopar/buytickets/INRC/2026{}',
@@ -168,6 +171,7 @@ c.url.searchengines = {
         '!pip' :'https://pypi.org/search/?q={}',
         '!pt': 'https://in.pinterest.com/search/pins/?q={}',
         '!gh': 'https://github.com/search?o=desc&q={}&s=stars',
+        '!ytt': 'https://www.youtube.com/results?search_query=intitle:"{}"',
         '!yt': 'https://www.youtube.com/results?search_query={}',
         '!gog': 'https://www.geeksforgeeks.org/search/?gq={}',
         '!py' : 'https://docs.python.org/3/search.html?q={}',
@@ -212,4 +216,3 @@ c.url.searchengines = {
 #        'horizontal': 8
 #    }
 #})
-
