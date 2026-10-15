@@ -19,7 +19,7 @@ function gi
     echo "submitting dot to the universe"
 
     if test "$PWD" = "/Users/bears"
-        git add .qutebrowser/config.py .config/fish/config.fish .vimrc .config/sioyek/keys_user.config .config/sioyek/prefs_user.config /Users/bears/Library/Application\ Support/espanso/match/base.yml
+        git add .qutebrowser/config.py .config/fish/config.fish .vimrc .config/sioyek/keys_user.config .config/sioyek/prefs_user.config
         git commit -m "$argv[1]"
         git push origin main
 
